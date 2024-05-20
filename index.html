@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=0.9">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="css/estilos.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <title>Registro Laboratorio Bioingeniería</title>
+</head>
+
+<body>
+    <header>
+        <div class="logo-izquierdo">
+            <!-- Aquí puedes insertar una imagen o texto para el logo izquierdo -->
+            <img src="css/IPN.png" alt="Logo Izquierdo">
+        </div>
+        <div class="titulo">
+            <h1>Registro Laboratorio de Bioingenieria</h1>
+        </div>
+        <div class="logo-derecho">
+            <!-- Aquí puedes insertar una imagen o texto para el logo derecho -->
+            <img src="css/UPIITA.png" alt="Logo Derecho">
+        </div>
+    </header>
+
+    <form id="formulario-registro">
+        <div id="contenedor-superior">
+            <!-- LÃ­nea 1 -->
+            <div class="linea">
+                <div class="campo">
+                    <label for="fecha">FECHA:</label>
+                    <input type="date" id="fecha" name="fecha" required>
+                </div>
+            </div>
+            <!-- LÃ­nea 2 -->
+            <div class="linea">
+                <div class="campo">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required>
+                </div>
+                <div class="campo">
+                    <label for="boleta">Boleta:</label>
+                    <input type="text" id="boleta" name="boleta" required>
+                </div>
+            </div>
+            <!-- LÃ­nea 3 -->
+            <div class="linea">
+                <div class="campo">
+                    <label for="materia">Materia:</label>
+                    <input type="text" id="materia" name="materia" required>
+                </div>
+                <div class="campo">
+                    <label for="profesor">Profesor:</label>
+                    <input type="text" id="profesor" name="profesor" required>
+                </div>
+            </div>
+        </div>
+        
+        <!--Contenedor de equipos -->
+        <div class="contenedor-principal">
+            <div class="contenedor-equipos">
+                <h3>Equipos</h3>
+                <div class="equipos">
+                    
+                    <div>
+                        <label for="mesa_trabajo">Mesa de Trabajo:</label>
+                        <input type="text" id="mesa_trabajo" name="mesa_trabajo" min="1"style="width: 100px" required>
+                    </div>
+                                                         
+                    <div>
+                        <input type="checkbox"  id="osciloscopio" name="herramientas" value="Osciloscopio">
+                        <label for="osciloscopio">Osciloscopio</label>
+                        <input type="number" class="numericos" id="osciloscopio_cantidad" name="osciloscopio_cantidad" min="1"
+                            style="display: none;">
+                    </div> 
+
+                    <div>
+                        <input type="checkbox" id="generador_funciones" name="herramientas"
+                            value="Generador de Funciones">
+                        <label for="generador_funciones">Generador de Funciones</label>
+                        <input type="number" class="numericos" id="generador_funciones_cantidad" name="generador_funciones_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="fuente_alimentacion" name="herramientas"
+                            value="Fuente de Alimentacion">
+                        <label for="fuente_alimentacion">Fuente de Alimentación</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="multimetro" name="herramientas" value="Multimetro">
+                        <label for="multimetro">Multimetro</label>
+                    </div>
+
+                    <div>
+                        <input type="checkbox" id="generador_am_fm" name="herramientas" value="Generador AM-FM">
+                        <label for="generador_am_fm">Generador AM-FM</label>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="contenedor-derecho">
+                <!--Contenedor de puntas -->
+                <div class="contenedor-puntas">
+                    <h3>Puntas</h3>
+                    <div class="puntas" style="display: flex;">
+                        <!-- Columna de checkboxes y campos numéricos -->
+                        <div class="columna-checkboxes" style="flex: 1;">
+                            <div class="checkbox-campo">
+                                <input type="checkbox" id="puntas_bnc_caiman_check" name="herramientas"
+                                    value="Puntas BNC-Caiman">
+                                <label for="puntas_bnc_caiman_check">BNC-Caiman</label>
+                                <input type="number" id="puntas_bnc_caiman" name="puntas_bnc_caiman" min="1"
+                                    style="display: none;">
+                            </div>
+                            <div class="checkbox-campo">
+                                <input type="checkbox" id="puntas_banana_caiman_check" name="herramientas"
+                                    value="Puntas Banana-Caiman">
+                                <label for="puntas_banana_caiman_check">Banana-Caiman</label>
+                                <input type="number" id="puntas_banana_caiman" name="puntas_banana_caiman" min="1"
+                                    style="display: none;">
+                            </div>
+                            <div class="checkbox-campo">
+                                <input type="checkbox" id="puntas_caiman_caiman_check" name="herramientas"
+                                    value="Puntas Caiman-Caiman">
+                                <label for="puntas_caiman_caiman_check">Caiman-Caiman</label>
+                                <input type="number" id="puntas_caiman_caiman" name="puntas_caiman_caiman" min="1"
+                                    style="display: none;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contenedor-stm32f4">                    
+                    <input type="checkbox" id="checkbox-stm32f4" name="checkbox-stm32f4" value="Tarjeta STM32F4">
+                    <label for="checkbox-stm32f4">Tarjeta STM32F4</label>
+                    <input type="number" id="campo-numerico-stm32f4" name="campo-numerico-stm32f4" min="1" style="display: none;">
+                </div>
+
+            </div>
+        </div>
+
+        
+        <div class="contenedor-inferior">
+            <h3>Biofisica</h3>
+            <div class="biofisica">
+                <!-- Microscopio -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="microscopio" name="biofisica" value="Microscopio">
+                        <label for="microscopio">Microscopio</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="microscopio_cantidad" name="microscopio_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Kit de disección -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="kitdiseccion" name="biofisica" value="Kit de Disección">
+                        <label for="kitdiseccion">Kit de Disección</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="kitdiseccion_cantidad" name="kitdiseccion_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Glucometro-->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="glucometro" name="biofisica" value="Glucometro">
+                        <label for="glucometro">Glucometro</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="glucometro_cantidad" name="glucometro_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Portaobjetos -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="portaObjetos" name="biofisica" value="Portaobjetos">
+                        <label for="portaObjetos">Portaobjetos</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="portaObjetos_cantidad" name="portaObjetos_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Caja Petri -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="cajaPetri" name="biofisica" value="Caja Petri">
+                        <label for="cajaPetri">Caja Petri</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="cajaPetri_cantidad" name="cajaPetri_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Navaja -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="navaja" name="biofisica" value="Navaja">
+                        <label for="navaja">Navaja</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="text" id="navaja_cantidad" name="navaja_cantidad" style="display: none;">
+                    </div>
+                </div>
+
+
+                <!-- Mango Bisturi­ -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="mangoBisturi" name="biofisica" value="Mango Bisturi">                        
+                        <label for="mangoBisturi" style="width: 100px">Mango Bisturi</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="mangoBisturi_cantidad" name="mangoBisturi_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Tiras Reactivas -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="tirasReactivas" name="biofisica" value="Tiras Reactivas">
+                        <label for="tirasReactivas">Tiras Reactivas</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="tirasReactivas_cantidad" name="tirasReactivas_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Lancetas -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="lancetas" name="biofisica" value="Lancetas">
+                        <label for="lancetas">Lancetas</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="lancetas_cantidad" name="lancetas_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+
+                <!-- Pinzas de Diseccion -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="pinzaDiseccion" name="biofisica" value="Pinzas de Diseccion">
+                        <label for="pinzaDiseccion">Pinzas de Diseccion</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="pinzaDiseccion_cantidad" name="pinzaDiseccion_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+
+                <!-- Campo Operatorio -->
+                <div class="equipo">
+                    <div class="nombre-equipo">
+                        <input type="checkbox" id="camOperatorio" name="biofisica" value="Campo Operatorio">
+                        <label for="camOperatorio">Campo Operatorio</label>
+                    </div>
+                    <div class="cantidad-equipo">
+                        <input type="number" id="camOperatorio_cantidad" name="camOperatorio_cantidad" min="1"
+                            style="display: none;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="contenedor-inferior">
+            <div class="contenedor-herramientas">
+                <h3>Herramientas y Aditamentos</h3>
+                <div class="herramientas-aditamentos">
+                    <input type="text" id="herramienta-input" placeholder="Escribe una herramienta">
+                    <button type="button" id="agregar-herramienta">Agregar</button>
+                    <div id="lista-herramientas"></div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="botones-accion">
+            <button class="btn-registro" id="btn-registro">Registro</button>
+            <button class="btn-guardar" id="btn-guardar" type="button" style="display: none;">Guardar</button>
+            <button class="btn-modificar" id="btn-modificar" type="button">Modificar</button>
+        </div>
+
+
+    </form>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
